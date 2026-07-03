@@ -81,8 +81,12 @@
                # speak "comma" when not adjacent to '…'
             - "( following-sibling::*[1][text()!= '…'] and preceding-sibling::*[1][text()!='…']  ) or "
                # except if expression starts with '…'
-            - "../*[1][text()='…'] "
-        then: [T: "komma"]                 #  (en: 'comma', google translation)
+            - "../*[1][.='…'] "
+        then:
+        - T: "komma"                         # 	(en: 'comma', google translation)
+        - test:
+            if: "$Verbosity != Terse"
+            then: [pause: short]
         # else silent
 
  - "-": [T: "minus"]                             #  0x2d
@@ -134,14 +138,25 @@
     - pause: short
  - "|":                                          #  0x7c
     # note: for ClearSpeak and SimpleSpeak, "|" inside of sets is handled at the mrow level, same for 'sets'
-     - test:
-        - if: "$SpeechStyle != 'ClearSpeak' or not(preceding-sibling::*) or not(following-sibling::*)"
-          then: [T: "lodstreck"]                 #  (en: 'vertical line', google translation)
-        - else_if: "$ClearSpeak_VerticalLine = 'SuchThat'"
-          then: [T: "sådana att"]                #  (en: 'such that', google translation)
-        - else_if: "$ClearSpeak_VerticalLine = 'Given'"  
-          then: [T: "givet"]                     #  (google translation)
-        - else: [T: "delar"]                     #  (en: 'divides')
+     - with:
+        variables: [DefaultToGiven: "count(preceding-sibling::*)=1 and count(following-sibling::*)=1 and ../../../*[1][.='P']"] # P(A|B)
+        replace:
+        - test:
+            - if: "$SpeechStyle != 'ClearSpeak'"
+              then_test:
+                - if: "$DefaultToGiven"
+                  then: [T: "givet"]     # given
+                - else_if: "preceding-sibling::*[1][self::m:mn and not(contains(., $DecimalSeparators))] and 
+                            following-sibling::*[1][self::m:mn and not(contains(., $DecimalSeparators))]"
+                  then: [T: "delar"]    # divides
+                  else: [T: "lodstreckl"]  # vertical line
+            - else_if: "not(preceding-sibling::*) or not(following-sibling::*)"
+              then: [T: "lodstreckl"]   # vertical line
+            - else_if: "$ClearSpeak_VerticalLine = 'SuchThat'"
+              then: [T: "sådana att"]   # such that
+            - else_if: "$ClearSpeak_VerticalLine = 'Given' or $DefaultToGiven"
+              then: [T: "givet"]        # given
+            - else: [T: "delar"]        # divides
 
  - "}":                                          #  0x7d
     - pause: short
@@ -245,17 +260,31 @@
             - "$SpeechStyle != 'ClearSpeak' or $ClearSpeak_Ellipses = 'Auto' or"
                # must be ClearSpeak and $ClearSpeak_Ellipses = 'AndSoOn'
                # speak '…' as 'and so on...' unless expr starts with '…'
-            - "../*[1][text()='…']"
+            - "../*[1][.='…']"
         then: [T: "punkt punkt punkt"]           #  (en: 'dot dot dot', google translation)
         else_test:                               #  must have $ClearSpeak_Ellipses = 'AndSoOn'
             if: "count(following-sibling::*) = 0"
             then: [T: "och så vidare"]           #  (en: 'and so on', google translation)
             else: [T: "och så vidare upp till"]       #  (en: 'and so on up to')
 
- - "⁡":                                          #  0x2061
+ - "⁡":                                          # 0x2061
     - test:
-        if: "not(preceding-sibling::*[1][IsInDefinition(., 'GeometryShapes')]) and
-             not(@data-changed='added' and ancestor-or-self::*[contains(@data-intent-property, ':structure:')])"
+        # skip saying "of" when Terse and a trig function, when it is a shape (does this happen?), or we are in :literal mode
+        # log is treated differently than trig functions
+        # Note: this differs from 'en' because the ClearSpeak and default rules are different from 'en'
+        if: "not(
+              ( ( $SpeechStyle='ClearSpeak' or preceding-sibling::*[1][.='log' or .='ln' or .='lg'] and
+                  IfThenElse(IsNode(following-sibling::*[1],'simple'),
+                                   true(),
+                                   $SpeechStyle='ClearSpeak' and $Verbosity!='Verbose')
+                ) and
+                preceding-sibling::*[1][IfThenElse($SpeechStyle='ClearSpeak',
+                                                   IsInDefinition(., 'ClearSpeakTrigFunctionNames'),
+                                                   IsInDefinition(., 'TrigFunctionNames') )]
+              ) or
+              preceding-sibling::*[1][IsInDefinition(., 'GeometryShapes')] or
+              (@data-changed='added' and ancestor-or-self::*[contains(@data-intent-property, ':literal:')])
+            )"
         then: [T: "av"]                          #  (en: 'of', google translation)
  - "⁢": [T: ""]                                  #  0x2062
  - "⁣": [T: ""]                                  #  0x2063
@@ -303,7 +332,6 @@
  - "∄": [T: "det finns inte"]                #  0x2204 (en: 'there does not exist')
  - "∅": [T: "tomma mängden"]                     #  0x2205 (en: 'empty set')
  - "∆": [T: "laplacianen av"]                     # 0x2206 (en: 'laplacian of')
- - "∇": [T: "gradienten av"]                     # 0x2207 (en: 'gradient of', google: 'lutning av')
  - "∈":                                          #  0x2208
      - test:
         if: "$SpeechStyle != 'ClearSpeak'"
@@ -408,7 +436,7 @@
  - "∶":                                          #  0x2236
      - T: "till"                            #  (en: 'to')
  - "∷": [T: "som"]                        #  0x2237 (en: 'as', MathPlayer: 'proportion', google: 'som')
- - "∼": [T: "tilde"]                      #  0x223c (en: 'varies with')
+ - "∼": [T: "är proportionell mot"]                      #  0x223c (en: 'varies with')
  - "∽": [T: "spegelvänd tilde"]                     #  0x223d (en: 'reversed tilde')
  - "∾":                                          #  0x223e
      # SWEDISH: Could not find any examples of how this character is used and what specific meaning it has. In ClearSpeak rules, it is

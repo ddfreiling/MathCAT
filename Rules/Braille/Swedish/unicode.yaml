@@ -23,7 +23,6 @@
  - ")": [t: "⠴"]                # 0x0029 (right parenthesis)
  - "+": [t: "⠲"]                # 0x002B (regular plus)
  - "-": [t: "⠤"]                # 0x002D (hyphen)
- - ".": [t: "⠂"]                # 0x002E (decimal point (American and Continental))
  - "/": [t: "⠌"]                # 0x002F (diagonal fraction line)
  - "0": [t: "N⠚"]                # 0x0030 (digit zero)
  - "1": [t: "N⠁"]                # 0x0031 (digit one)
@@ -42,22 +41,24 @@
  - "@": [t: "⠘⠷"]                # 0x0040 (at)
  - "[": [t: "⠷"]                # 0x005B (left square bracket)
  - "]": [t: "⠾"]                # 0x005D (right square bracket)
- - "_": [t: "⠤"]                # 0x005F (low line (underscore))
- - "¯": [t: "⠤"]                # 0x00AF (macron)
+ - "^": [t: "⠘⠤"]                # 0x005E (circumflex)
+ - "_": [t: "⠘⠤"]                # 0x005F (low line (underscore))
+ - "¯": [t: "⠘⠤"]                # 0x00AF (macron)
 
  - "{": [t: "⠠⠷"]                # 0x007B (left curly brace)
  - "|": [t: "⠸"]                # 0x007C (divides)
- - "~": [t: "⠒"]                # 0x007E (tilde)
+ - "~": [t: "⠘⠒"]                # 0x007E (tilde)
  - "}": [t: "⠠⠾"]                # 0x007D (right curly brace)
  - "¢": [t: "⠘⠉"]                # 0x00A2 (cent)
  - "£": [t: "⠘⠇"]                # 0x00A3 (pound sterling)
  - "¥": [t: "⠘⠽"]                # 0x00A5 (yen sign)
  - "¬": [t: "⠒⠲"]                # 0x00AC (not (negation in formal logic))
  - "°": [t: "⠻⠛"]                # 0x00B0 (degree sign)
- - "±": [t: "⠨⠲⠤"]                # 0x00B1 (plus or minus)
- - "¼": [t: "⠼⠁⠌⠼⠙"]                # 0x00BC (vulgar fraction one quarter)
- - "½": [t: "⠼⠁⠌⠼⠃"]                # 0x00BD (vulgar fraction one half)
- - "¾": [t: "⠼⠉⠌⠼⠙"]                # 0x00BE (vulgar fraction three quarters)
+ - "±": [t: "⠨⠲⠤"]               # 0x00B1 (plus or minus)
+ - "·": [t: "⠻⠄"]                # 0x00B7 (Multiplication dot (times))
+ - "¼": [t: "⠼⠁⠌⠼⠙"]            # 0x00BC (vulgar fraction one quarter)
+ - "½": [t: "⠼⠁⠌⠼⠃"]            # 0x00BD (vulgar fraction one half)
+ - "¾": [t: "⠼⠉⠌⠼⠙"]            # 0x00BE (vulgar fraction three quarters)
  - "×": [t: "⠻⠭"]                # 0x00D7 (  multiplication sign)
  - "÷": [t: "⠒⠔"]                # 0x00F7 (division sign ( divided by ))
  - "ב": [t: "⠻⠘⠃"]                # 0x05D1 (  beth)
@@ -71,7 +72,7 @@
  - "€": [t: "⠘⠑"]                # 0x20AC (euro)
  - "ℵ": [t: "⠻⠘⠁"]                # 0x2135 (alef)
  - "⅐": [t: "N⠁⠌N⠛"]                # 0x2150 (vulgar fraction one seventh)
- - "⅑": [t: "N⠁⠌N⠊ "]                # 0x2151 (vulgar fraction one ninth)
+ - "⅑": [t: "N⠁⠌N⠊"]                # 0x2151 (vulgar fraction one ninth)
  - "⅒": [t: "N⠁⠌N⠁⠚"]                # 0x2152 (vulgar fraction one tenth)
  - "⅓": [t: "N⠁⠌N⠉"]                # 0x2153 (vulgar fraction one third)
  - "⅔": [t: "N⠃⠌N⠉"]                # 0x2154 (vulgar fraction two thirds)
@@ -81,19 +82,20 @@
  - "⅘": [t: "N⠙⠌N⠑"]                # 0x2158 (vulgar fraction four fifths)
  - "⅙": [t: "N⠁⠌N⠋"]                # 0x2159 (vulgar fraction one sixth)
  - "⅚": [t: "N⠑⠌N⠋"]                # 0x215A (vulgar fraction five sixths)
- - "⅛": [t: "N⠁⠌N⠓ "]                # 0x215B (vulgar fraction one eighth)
+ - "⅛": [t: "N⠁⠌N⠓"]                # 0x215B (vulgar fraction one eighth)
  - "⅜": [t: "N⠉⠌N⠓"]                # 0x215C (vulgar fraction three eighths)
  - "⅝": [t: "N⠑⠌N⠓"]                # 0x215D (vulgar fraction five eighths)
- - "⅞": [t: "N⠛⠌N⠓ "]                # 0x215E (vulgar fraction seven eighths)
+ - "⅞": [t: "N⠛⠌N⠓"]                # 0x215E (vulgar fraction seven eighths)
  - "↉": [t: "N⠚⠌N⠉"]                # 0x2189 (vulgar fraction zero thirds)
- - "←": [t: "⠪⠒"]                # 0x2190 (left pointing arrow)
- - "↑": [t: "⠘⠦⠥⠏⠊⠇⠘⠴"]                # 0x2191 (arrow pointing up)
- - "↓": [t: "⠘⠦⠝⠏⠊⠇⠘⠴⠀"]                # 0x2193 (arrow pointing down)
- - "↔": [t: "⠪⠒⠕"]                # 0x2194 (horizontal two-way arrow)
- - "↖": [t: "⠘⠦⠝⠧⠏⠊⠇⠘⠴"]                # 0x2196 (north west arrow)
- - "↗": [t: "⠘⠦⠝⠕⠏⠊⠇⠘⠴"]                # 0x2197 (north east arrow)
- - "↘": [t: "⠘⠦⠎⠕⠏⠊⠇⠘⠴"]                # 0x2198 (south east arrow)
- - "↙": [t: "⠘⠦⠎⠧⠏⠊⠇⠘⠴"]                # 0x2199 (south west arrow)
+ - "←": [t: "⠪⠒"]                   # 0x2190 (left pointing arrow)
+ - "↑": [t: "⠘⠦⠥⠏⠊⠇⠘⠴"]            # 0x2191 (arrow pointing up)
+ - "→": [t: "⠒⠕"]                    # 0x2192 (right arrow)
+ - "↓": [t: "⠘⠦⠝⠏⠊⠇⠘⠴⠀"]           # 0x2193 (arrow pointing down)
+ - "↔": [t: "⠪⠒⠕"]                   # 0x2194 (horizontal two-way arrow)
+ - "↖": [t: "⠘⠦⠝⠧⠏⠊⠇⠘⠴"]           # 0x2196 (north west arrow)
+ - "↗": [t: "⠘⠦⠝⠕⠏⠊⠇⠘⠴"]           # 0x2197 (north east arrow)
+ - "↘": [t: "⠘⠦⠎⠕⠏⠊⠇⠘⠴"]           # 0x2198 (south east arrow)
+ - "↙": [t: "⠘⠦⠎⠧⠏⠊⠇⠘⠴"]           # 0x2199 (south west arrow)
  - "↦": [t: "⠸⠒⠕"]                # 0x21A6 (rightwards arrow from bar (maps to))
  - "↷": [t: "⠘⠦⠁⠧⠃⠘⠴"]                # 0x21B7 (clockwise top semicircle arrow)
  - "↼": [t: "⠘⠦⠧⠓⠁⠗⠏⠥⠝⠘⠴"]                # 0x21BC (leftwards harpoon with barb upwards)
@@ -184,6 +186,14 @@
  - "○": [t: "⠻⠉"]                # 0x25CB (circle)
  - "⟨": [t: "⠠⠦"]                # 0x27E8 (left angle bracket ( angular parenthesis ))
 
+ - "…":                          # 0x2026 (ellipsis) -- no matter where they occur, they seem to always have spaces around them.
+     - t: "W⠄⠄⠄"
+     - test:
+        if: "not(following-sibling::*[1][self::m:mo and .=','])"
+        then: [t: "W"]
+ - "*": [t: "⠔"]                # 0x002A (asterisk)
+ - "∗": [t: "⠔"]                # 0x2217 (asterisk)
+
 
 
  - " ":                        # 0x20 (Space)
@@ -198,38 +208,30 @@
         - else_if: "following-sibling::*[1][@class='MathML-unit' or BaseNode(.)[@class='MathML-unit']]"
           then: [t: "𝐖"]
           else: [t: "W"]
+ - ".":                        # 0x2E (Period/FullStop)
+     - test:
+        if: "self::m:mn"
+        then: [t: "N⠄"]
+        else: [t: "⠄"]
  - ",":                        # 0x2c (Comma)
      - test:
         if: "self::m:mn"
         then: [t: "N⠂"]
         else: [t: ",W"]
- - ":":                         # 0x003A (Colon)
-        # Sometimes a colon is meant to be a ratio/mathord and sometimes a map/punct.
-        # The latter has a space after it.
-        # If in an mrow, guess it is infix and checks the operator. This is pretty weak!
-        # Field extensions "[K:F]" and trilinear coordinates "a:b:c" don't want extra space
-        # Time doesn't want an extra space -- the am/pm get wrapped in an mrow with the minutes after the colon
-    - test:
-        if:
-        - "ancestor::*[2][IsBracketed(., '{', '}')] or "       # field extension
-        - "preceding-sibling::*[2][text()=':'] or following-sibling::*[2][text()=':'] or"  # trilinear form
-          # ratios tend to have similar left and right sides
-        - "name(preceding-sibling::*[1]) = name(following-sibling::*[1]) or"
-          # am/pm test
-        - "(name(preceding-sibling::*[1]) = 'mn' and "
-        - "  following-sibling::*[1][self::m:mrow and count(*)=3 and *[1][self::m:mn] and "
-        - "     *[3][translate(., 'APM\u00A0', 'apm') = 'am' or translate(., 'APM\u00A0', 'apm') = 'pm']"
-        - " ])"
-        then: [t: "⠒"]
-        else: [t: "⠒W"]
+ - ":": [t: "⠒"]               # 0x3a
 
- - "⁡": [t: ""]                         # 0x2061⁡ (invisible function apply)
-    #- test:
-        #if:
-        #- "preceding-sibling::*[1][self::m:mi and substring(., string-length(.), 1)!=' '] and " # avoid scripted function names and one that end with spaces
-        #- "following-sibling::*[1][self::m:mi and translate(., 'abcdefghijklmnopqrstuvwxyz', '') = '']" # GTM 9.3.2
-        #then: [t: "W"]
-        #else: [t: ""]
+ - "⁡":                          # 0x2061⁡ (invisible function apply)
+    # add a space if name doesn't have brackets after it or is in FunctionNames list and isn't off the baseline
+    # we always have to add a space if what follows is a letter
+    - test:
+        if: "preceding-sibling::*[1][IsInDefinition(BaseNode(.), 'Braille', 'FunctionNames')] and
+             (following-sibling::*[1][
+                  IsNode(., 'leaf') and 
+                  translate(substring(., 1, 1), 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', '') = ''] or
+              ($NewScriptContext='' and not(ancestor::*[self::m:mfrac]) and following-sibling::*[1][not(self::m:mfrac or IsBracketed(., '', ''))])
+             )" 
+        then: [t: "w"]      # follows a function name, so lowercase
+        else: [t: ""]
 
  - "⁢": [t: ""]                        # 0x2062 (invisible times)
     #- test:
@@ -239,11 +241,16 @@
         #- "           (self::m:mi and translate(., 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', '') = '') or "
         #- "           (self::m:mrow and translate(*[last()], 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', '') = '')] and"
         #- "  following::*[1][self::m:mrow and count(*)=3 and "   # look for function apply
-        #- "     *[2][text()='⁡'] and *[1][self::m:mi and translate(., 'abcdefghijklmnopqrstuvwxyz', '') = '']]" 
+        #- "     *[2][.='⁡'] and *[1][self::m:mi and translate(., 'abcdefghijklmnopqrstuvwxyz', '') = '']]" 
         #then: [t: "W"]
         #else: [t: ""]
  - "⁣": [t: ""]                 # 0x2063⁡ (invisible separator)
- - "⁤": [t: ""]                 # 0x2064 (invisible plus)
+ - "⁤":                         # 0x2064 (invisible plus)
+    - test:
+        if: "following-sibling::*[1][self::m:mrow]"   # should be a mixed fraction where the fraction is linear
+        then: [t: "W"]      # 
+        else: [t: ""]
+    
 
  # we stick the drop numbers into the private use area for consistency
  - "\ue000": [t: "N⠴"]               # 0 
@@ -453,8 +460,8 @@
  - "δ": [t: "GL⠙"]              # 0x3b4 
  - "ε": [t: "GL⠑"]              # 0x3b5 
  - "ζ": [t: "GL⠵"]              # 0x3b6 
- - "η": [t: "GL⠱"]             # 0x3b7 
- - "θ": [t: "GL⠹"]              # 0x3b8 
+ - "η": [t: "GL⠚"]              # 0x3b7
+ - "θ": [t: "GL⠓"]              # 0x3b8
  - "ι": [t: "GL⠊"]              # 0x3b9 
  - "κ": [t: "GL⠅"]              # 0x3ba 
  - "λ": [t: "GL⠇"]              # 0x3bb 
@@ -464,7 +471,7 @@
  - "ο": [t: "GL⠕"]              # 0x3bf 
  - "π": [t: "GL⠏"]              # 0x3c0 
  - "ρ": [t: "GL⠗"]              # 0x3c1 
- - "ς": [t: "GL⠎"]              # 0x3c2 
+#  - "ς": [t: "GL⠎"]              # 0x3c2 
  - "σ": [t: "GL⠎"]              # 0x3c3 
  - "τ": [t: "GL⠞"]              # 0x3c4 
  - "υ": [t: "GL⠥"]              # 0x3c5 
@@ -480,8 +487,8 @@
  - "Δ": [t: "CGL⠙"]             # 0x394 
  - "Ε": [t: "CGL⠑"]             # 0x395 
  - "Ζ": [t: "CGL⠵"]             # 0x396 
- - "Η": [t: "CGL⠱ "]            # 0x397 
- - "Θ": [t: "CGL⠹"]             # 0x398 
+ - "Η": [t: "CGL⠚"]             # 0x397 
+ - "Θ": [t: "CGL⠓"]             # 0x398 
  - "Ι": [t: "CGL⠊"]             # 0x399 
  - "Κ": [t: "CGL⠅"]             # 0x39a 
  - "Λ": [t: "CGL⠇"]             # 0x39b 

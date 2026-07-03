@@ -5,6 +5,7 @@ mod common;
 mod braille {
     mod Nemeth {
         mod rules;
+        mod other;
         mod chemistry;
         mod SRE_Nemeth72;
         mod SRE_NemethBase;
@@ -23,6 +24,10 @@ mod braille {
         mod vi;
     }
 
+    mod Swedish {
+        mod swedish;
+    }
+
     mod LaTeX {
         mod augenbit;
         mod other;
@@ -32,5 +37,10 @@ mod braille {
         mod augenbit;
         mod other;
     }
+
+    // mod ASCIIMath_fi {
+    //     mod spec;
+    //     mod other;
+    // }
 }
 
